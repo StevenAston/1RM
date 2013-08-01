@@ -19,7 +19,7 @@ $(document).ready(function() {
 			$('#output').removeClass('output');
 			$('#output').addClass('error');
 			$('#output').html(weight + "? Really?");
-		} else if (reps > 25) {
+		} else if (reps > 20) {
 			inputIsClean = false;
 			$('#output').removeClass('output');
 			$('#output').addClass('error');
@@ -42,13 +42,18 @@ $(document).ready(function() {
 
 		$('#results').fadeIn('fast');
 	});
+
+	$("#explain").click(function(){
+		console.info("explain clicked");
+		showDialog();
+	});
 });
 
 function calc1RM (weight, reps, sets) {
 	var max = weight/(1.0278-(0.0278*reps));
 	max = max*(1+((sets-1)*0.02125));
+	max = max.toFixed(1);
 	console.log(max);
-	max = Math.round((max*10)/10);
 	return max;
 };
 
@@ -85,3 +90,12 @@ function checkInput(weight, reps, sets) {
 		return(false);
 	};
 };
+
+$(function() {
+	$("#dialog").dialog({
+		autoOpen: false
+	});
+	$("#explain").on("click", function() {
+		$("#dialog").dialog("open");
+	});
+});
