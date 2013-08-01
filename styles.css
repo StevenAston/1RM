@@ -1,7 +1,9 @@
 @font-face {
 	font-family: knewave;
-	src: url('fonts/knewave/knewave.otf'),
-		 url('fonts/knewave/webfonts/knewave-webfont.eot'); /* IE9 */
+	src: url('fonts/knewave/webfonts/knewave-webfont.eot') format('embedded-opentype'),
+		 url('fonts/knewave/webfonts/knewave-webfont.svg') format('svg'),
+		 url('fonts/knewave/webfonts/knewave-webfont.woff') format('woff'),
+		 url('fonts/knewave/webfonts/knewave-webfont.ttf') format('ttf');
 }
 
 @font-face {
@@ -23,9 +25,7 @@ body {
 
 }
 
-input {
-
-}
+input {}
 
 .field {
 	width: 220px;
@@ -40,6 +40,11 @@ input {
 	color: rgb(32,32,32);
 	box-shadow: inset 0px 0px 5px rgba(0,0,0,0.25);
 	text-align: center;
+	background-color: rgb(246,246,246);
+}
+
+.field:focus {
+	background-color: white;
 }
 
 
@@ -47,7 +52,7 @@ input {
 	font-size: 5em;
 	font-family: knewave;
 	font-style: bold;
-	height: 108px;
+	height: 128px;
 	padding-top: 8px;
 	padding-bottom: 16px;
 	margin: 0;
@@ -56,8 +61,18 @@ input {
 	border-top: 1px solid rgba(0,0,0,0.25);
 	border-left: 1px solid rgba(0,0,0,0.25);
 	border-right: 1px solid rgba(0,0,0,0.25);
-	/*border-bottom: 1px solid rgba(0,0,0,0.25);*/
-	letter-spacing: 0.12em;
+}
+
+p {
+	margin: 16px 0 16px 0;
+	letter-spacing: 0.08em;
+	overflow: visible;
+	line-height: 125%;
+	z-index: -1;
+}
+
+.info {
+	font-size: 1em;
 }
 
 .divider {
@@ -165,6 +180,13 @@ a:hover {
 	margin: 32px auto 0 auto;
 }
 
+.smallText {
+	font-size: 0.9em;
+	font-family: Arial;
+	height: 56px;
+	padding: 8px 12px 8px 12px;
+}
+
 #header {
 	background-color: rgb(240,15,90);
 	background-image: linear-gradient(bottom, rgb(240,17,17) 0%, rgb(240,17,91) 100%);
@@ -198,4 +220,5 @@ a:hover {
 	font-size: 0.95em;
 	height: 32px;
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.2);
+	border-top: 1px solid rgba(0,0,0,0.2);
 }

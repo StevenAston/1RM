@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	console.log('Document Ready');
 	$('#results').hide();
+
 	$("#submit").click(function(){
 		console.info('Submit button clicked');
 
@@ -35,23 +36,18 @@ $(document).ready(function() {
 			var oneRM = calc1RM(weight, reps, sets);	
 			$('#output').addClass('output');
 			$('#output').removeClass('error');
-			$('#output').html(oneRM + "<br>");
+			$('#output').html('<p>' + oneRM + '</p><br>');
 		};
 
 
 
 		$('#results').fadeIn('fast');
 	});
-
-	$("#explain").click(function(){
-		console.info("explain clicked");
-		showDialog();
-	});
 });
 
 function calc1RM (weight, reps, sets) {
 	var max = weight/(1.0278-(0.0278*reps));
-	max = max*(1+((sets-1)*0.02125));
+	max = max*(1+((sets-1)*0.0235));
 	max = max.toFixed(1);
 	console.log(max);
 	return max;
@@ -91,11 +87,3 @@ function checkInput(weight, reps, sets) {
 	};
 };
 
-$(function() {
-	$("#dialog").dialog({
-		autoOpen: false
-	});
-	$("#explain").on("click", function() {
-		$("#dialog").dialog("open");
-	});
-});
