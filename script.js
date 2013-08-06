@@ -15,17 +15,17 @@ $(document).ready(function() {
 			inputIsClean = false;
 		};
 
-		if (weight > 999) {
+		if (weight > 1000) {
 			inputIsClean = false;
 			$('#output').removeClass('output');
 			$('#output').addClass('error');
 			$('#output').html(weight + "? Really?");
-		} else if (reps > 20) {
+		} else if (reps > 20 || reps <= 0) {
 			inputIsClean = false;
 			$('#output').removeClass('output');
 			$('#output').addClass('error');
 			$('#output').html(reps + " reps? Really?");
-		} else if (sets > 10) {
+		} else if (sets > 10 || sets < 1 || sets % 1 != 0) {
 			inputIsClean = false;
 			$('#output').removeClass('output');
 			$('#output').addClass('error');
